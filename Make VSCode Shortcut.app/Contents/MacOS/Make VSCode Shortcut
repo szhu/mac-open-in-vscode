@@ -1,0 +1,11 @@
+#!/bin/sh
+
+SELF="$(dirname "$0")/../.."
+SRC="$SELF/../Open in Visual Studio Code.app"
+DST_DIR="$(osascript -e 'tell app "Finder" to get POSIX path of ((target of window 1) as string)')"
+DST="$DST_DIR/Open in Visual Studio Code.app"
+
+
+cp -a -- "$SRC" "$DST_DIR"
+"$DST/Contents/MacOS/Open Folder In" --update-app-name-only
+open -R "$DST"
