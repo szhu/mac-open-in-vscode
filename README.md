@@ -1,28 +1,46 @@
-# Mac "Open in VSCode" Shortcut
+# Mac "Open in VSCode"
 
-This tool helps you make tiny helper apps that, when clicked, open the containing folder in Visual Studio Code.
+This is a tiny app that declares folders ending in `.git`, `.vscode`, and
+`.code` as [macOS packages]. When the package is opened, it will open the folder
+in Visual Studio Code.
 
-## Why
+[macos packages]: https://en.wikipedia.org/wiki/Package_(macOS)
 
-macOS gives files great treatment -- you can open them from Spotlight or the Dock. Opening folders in VSCode isn't nearly as nice.
+## Why this is useful
 
-Currently, the fastest ways to do this are:
+Currently, double-clicking a project/repo folder opens it in Finder. When you
+double-click the folder, you probably wanted to open it in VSCode.
 
-- Dragging the folder into the app icon or window.
-- Opening VSCode, then finding the folder via "Open Recent".
-- Using a third-party launcher.
+If your code project is folder contains thousands of tiny files (hi,
+`node_modules`!), they clutter up your Spotlight searches.
 
-In short, there's currently no quick, built-in way to open a folder in VSCode.
+Instead, if you use this tool, you can now do a Spotlight search for your
+project and press enter to immediately open it in VSCode!
 
 ## How to use
 
 1. Download or clone this repo.
-2. In Finder, go to the folder you want to make a shortcut to.
-3. Use Spotlight to search for the "Make VSCode Shortcut" app. (Or add it to the Dock and open it.) Note that the frontmost Finder window must showing the desired folder.
-4. The app will make a new shortcut in the folder with the same name!
+2. For each project you'd like to turn into a package, add one of these
+   extensions to the end of the folder name: `.git`, `.vscode`, or `.code`.
+   (Currently, the extensions are treated equally.)
 
-If you want to ignore these shortcuts in Git, add the following line to your global `.gitignore` file:
+## Future considerations
 
-```gitignore
-Open in Visual Studio Code.app
-```
+<details>
+
+<summary>Some features that could be added in the future:</summary>
+
+- [ ] Allow setting a preference to change the app the file opens in.
+  - Workaround, edit the id near the bottom of this file:
+    `Code Project Launcher.app/Contents/MacOS/Code Project Launcher`.
+- [ ] Look into which supported extensions (`.git`, `.vscode`, `.code`) makes
+      the most sense for most users, and perhaps change the app to only support
+      that one.
+- [ ] Allow a different app per extension.
+- [ ] Allow showing a prompt for the user to choose which app to open the folder
+      in.
+- [ ] Add a Uniform Type Identifier to the type declaration such that the "Open
+      With" menu shows more relevant results. (It probably should be
+      `public.folder`.)
+
+</details>
