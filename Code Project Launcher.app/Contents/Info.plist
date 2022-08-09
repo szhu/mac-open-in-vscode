@@ -5,20 +5,16 @@
     <key>CFBundleDocumentTypes</key>
     <array>
       <dict>
-        <key>CFBundleTypeExtensions</key>
-        <array>
-          <string>git</string>
-          <string>vscode</string>
-          <string>code</string>
-        </array>
         <key>CFBundleTypeIconFile</key>
         <string>Icon</string>
-        <key>CFBundleTypeName</key>
-        <string>Code project</string>
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
-				<key>LSTypeIsPackage</key>
-				<true/>
+        <key>LSItemContentTypes</key>
+        <array>
+          <string>com.interestinglythere.code-project</string>
+        </array>
+        <key>LSTypeIsPackage</key>
+        <integer>1</integer>
       </dict>
     </array>
     <key>CFBundleExecutable</key>
@@ -35,5 +31,29 @@
     <string>0.1</string>
     <key>LSBackgroundOnly</key>
     <true />
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+      <dict>
+        <key>UTTypeConformsTo</key>
+        <array>
+          <string>com.apple.package</string>
+          <string>public.source-code</string>
+          <string>public.composite-content</string>
+        </array>
+        <key>UTTypeDescription</key>
+        <string>Code project</string>
+        <key>UTTypeIdentifier</key>
+        <string>com.interestinglythere.code-project</string>
+        <key>UTTypeTagSpecification</key>
+        <dict>
+          <key>public.filename-extension</key>
+          <array>
+            <string>git</string>
+            <string>vscode</string>
+            <string>code</string>
+          </array>
+        </dict>
+      </dict>
+    </array>
   </dict>
 </plist>
